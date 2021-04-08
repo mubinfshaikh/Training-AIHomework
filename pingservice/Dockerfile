@@ -1,8 +1,6 @@
-FROM python:3.6
-MAINTAINER Mubin Shaikh
-COPY ./home/mubin/Training-AIHomework/pingservice/pingservice.py /opt/
-COPY ./home/mubin/Training-AIHomework/pingservice/requirements.txt /opt
-WORKDIR /opt
-RUN pip3 --no-cache-dir install -r requirements.txt
-EXPOSE 5000
+FROM python:3.6.9
+COPY . /codebase
+WORKDIR /codebase
+RUN pip install -r requirements.txt
+EXPOSE  5000
 CMD ["python", "pingservice.py"]
